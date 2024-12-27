@@ -3,8 +3,7 @@ variable "gcp_credentials_path" {
 }
 
 variable "project_id" {
-  description = "ID do projeto GCP"
-  type        = string
+  type = string
 }
 
 variable "region" {
@@ -70,5 +69,5 @@ variable "compute_settings" {
 variable "my_ip" {
   description = "Seu endereço IP para acesso SSH"
   type        = string
-  sensitive   = true
+  default     = "34.135.225.186"
 }
