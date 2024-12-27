@@ -1,8 +1,3 @@
-variable "project_id" {
-  description = "ID do projeto GCP"
-  type        = string
-}
-
 variable "region" {
     type = string
 }
