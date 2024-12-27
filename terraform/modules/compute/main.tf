@@ -1,8 +1,3 @@
-data "google_secret_manager_secret_version" "chave_publica" {
-  secret  = "chave-publica-awxServer"
-  project = var.project_id
-}
-
 resource "google_compute_instance" "web" {
   count         = var.compute_settings.count
   name          = "tutorial-web-${count.index}"

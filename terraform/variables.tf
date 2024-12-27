@@ -2,8 +2,8 @@ variable "gcp_credentials_path" {
    type = string 
 }
 
-variable "project_id" {
-  type = string
+variable "gcp_project" {
+   type = string 
 }
 
 variable "region" {
