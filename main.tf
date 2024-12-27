@@ -36,4 +36,5 @@ module "compute" {
     vpc_id = module.network.vpc_id
     my_ip = var.my_ip
     vpc_cidr_block = module.network.vpc_cidr_block
+    project_id = var.project_id
 }
