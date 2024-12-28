@@ -22,3 +22,8 @@ variable "my_ip" {
 variable "vpc_cidr_block" {
     type = string
 }
+
+variable "ssh_public_key" {
+  description = "Chave pública SSH para acesso às instâncias"
+  type        = string
+}

@@ -13,34 +13,18 @@ resource "google_compute_instance" "web" {
     access_config {}
   }
 
-  metadata = {
-    ssh-keys = "matheusgandrade:${data.google_secret_manager_secret_version.chave_publica.secret_data}"
+  network_interface {
+    network    = var.vpc_id
+    subnetwork = var.private_subnets_ids[0]
+    alias_ip_range {
+      ip_cidr_range         = "10.128.0.0/24"
+      subnetwork_range_name = "ip-range-padrao"
     }
-}
-
-#resource "google_compute_address" "static" {
-#  count = var.compute_settings.count
-#  name = "ip-estatico-${count.index}"
-#  region = var.region
-#}
-
-resource "google_compute_instance_network_interface" "nic" {
-  count = var.compute_settings.count
- instance = google_compute_instance.web[count.index].id
-  network_interface_id = 0
-  network = var.vpc_id
-  subnetwork = var.public_subnets_ids[0]
-  alias_ip_range {
-    ip_cidr_range         = "10.128.0.0/24"
-    subnetwork_range_name = "ip-range-padrao"
   }
-}
 
-resource "google_compute_network_interface_attachment" "attachment" {
-  count = var.compute_settings.count
-  instance         = google_compute_instance.web[count.index].id
-  network_interface = 0
-  ip_address = google_compute_address.static[count.index].address
+  metadata = {
+    ssh-keys = "matheusgandrade:${var.ssh_public_key}"
+    }
 }
 
 resource "google_compute_firewall" "allow_ssh" {

@@ -7,3 +7,6 @@ output "public_subnets_ids" {
 output "private_subnets_ids" {
     value = google_compute_subnetwork.private.*.id
 }
+output "vpc_cidr_block" {
+  value = google_compute_network.vpc.ip_range
+}
