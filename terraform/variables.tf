@@ -69,5 +69,5 @@ variable "compute_settings" {
 variable "my_ip" {
   description = "Seu endereço IP para acesso SSH"
   type        = string
-  default     = "34.135.225.186"
+  default     = "34.42.202.35"
 }
