@@ -4,12 +4,6 @@ resource "google_sql_database_instance" "database" {
   database_version = var.db_settings.engine_version
   settings {
     tier = var.db_settings.tier
-    ip_configuration {
-      authorized_networks {
-          name = "allow-compute-engine"
-          value = "10.0.0.0/16"
-      }
-    }
   }
 
   deletion_protection = var.db_settings.deletion_protection
