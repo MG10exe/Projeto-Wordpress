@@ -16,10 +16,6 @@ resource "google_compute_instance" "web" {
   network_interface {
     network    = var.vpc_id
     subnetwork = var.private_subnets_ids[0]
-    alias_ip_range {
-      ip_cidr_range         = "10.128.0.0/24"
-      subnetwork_range_name = "ip-range-padrao"
-    }
   }
 
   metadata = {
