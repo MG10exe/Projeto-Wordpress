@@ -15,5 +15,5 @@ output "private_subnets_ids" {
   value = [for sub in google_compute_subnetwork.private : sub.id]
 }
 output "vpc_cidr_block" {
-  value = google_compute_network.vpc.ip_range
+  value = google_compute_network.vpc.cidr_block
 }
