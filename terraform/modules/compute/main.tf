@@ -48,5 +48,5 @@ resource "google_compute_firewall" "allow_db" {
     protocol = "tcp"
     ports    = ["3306"]
   }
-  source_ranges = [var.vpc_cidr_block]
+   source_ranges = ["10.0.0.0/16"]
 }
