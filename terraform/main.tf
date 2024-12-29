@@ -32,6 +32,7 @@ module "compute" {
     source = "./modules/compute"
     region = var.region
     compute_settings = var.compute_settings
+    private_subnets_ids = module.network.private_subnets_ids
     public_subnets_ids = module.network.public_subnets_ids
     vpc_id = module.network.vpc_id
     my_ip = var.my_ip
