@@ -11,12 +11,10 @@ variable "compute_settings" {
 }
 variable "public_subnets_ids" {
     type = list(string)
-
+}
 variable "private_subnets_ids" {
     description = "IDs das sub-redes privadas"
     type        = list(string)
-}
-
 }
 variable "vpc_id" {
     type = string
