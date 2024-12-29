@@ -9,7 +9,6 @@ resource "google_sql_database_instance" "database" {
           name = "allow-compute-engine"
           value = "10.0.0.0/16"
       }
-      require_ssl = true
     }
   }
 
