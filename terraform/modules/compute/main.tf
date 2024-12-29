@@ -13,11 +13,6 @@ resource "google_compute_instance" "web" {
     access_config {}
   }
 
-  network_interface {
-    network    = var.vpc_id
-    subnetwork = var.private_subnets_ids[0]
-  }
-
   metadata = {
     ssh-keys = "matheusgandrade:${var.ssh_public_key}"
     }
